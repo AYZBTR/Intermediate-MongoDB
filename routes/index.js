@@ -64,6 +64,7 @@ router.get('/find', async function(req, res){
   $expr:{
     //and operator i.e array
     $and:[
+      //strLenCP = stringLengthCompare in mongoose
       {$gte:[{$strLenCP: '$nickname'},0]},
       {$lte:[{$strLenCP: '$nickname'},4]}
     ]
