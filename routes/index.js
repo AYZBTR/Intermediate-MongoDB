@@ -8,7 +8,7 @@ router.get('/', function(req, res){
 });
 
 
-router.get('/create', async function(req, res){
+/* router.get('/create', async function(req, res){
  let userData1 = await userModel.create({
   username: "David", 
   nickname: "DVD",
@@ -17,7 +17,7 @@ router.get('/create', async function(req, res){
   categories: ["Java", "spring", "html", "mongoose", "express", "mongoDB"]
  });
  res.send(userData1 );
-});
+}); */
 
 
 //Question1: How can I perform a case-insensitive search in Mongoose?
@@ -41,13 +41,23 @@ router.get('/create', async function(req, res){
 //Question 3. How can I search for documents with a specific date range in Mongoose?
 
 
-router.get('/find', async function(req,res){
+/* router.get('/find', async function(req,res){
 
   var date1 = new Date('2024-02-07');
   var date2 = new Date('2024-02-09');
   //gte = greater than or equals to , lte = less than or equals to :D
   let findUser = await userModel.find({datecreated:{ $gte:date1, $lte:date2}}); 
   res.send(findUser);
-});
+}); */
+
+//Question 4: How can I filter documents based on the existence of a field in Mongoose?
+
+/* router.get('/find', async function(req, res){
+  let findUser = await userModel.find({categories:{ $exists : true }});
+  res.send(findUser);
+}); */
+
+//Question 5: How can I filter documents based on a specific field’s length in Mongoose?
+
 
 module.exports = router;
