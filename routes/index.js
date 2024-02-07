@@ -58,6 +58,19 @@ router.get('/', function(req, res){
 }); */
 
 //Question 5: How can I filter documents based on a specific field’s length in Mongoose?
+router.get('/find', async function(req, res){
+ let findUser = await userModel.find({
+  $expr:{
+    $and:[
+      {$gte:[{$strLenCP: '$nickname'},0]},
+      {$lte:[{$strLenCP: '$nickname'},4]}
+    ]
+  }
+  
+ });
+ res.send(findUser)
+});
+
 
 
 module.exports = router;
