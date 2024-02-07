@@ -33,8 +33,20 @@ router.get('/create', async function(req, res){
 
 
 //Question 2: How do I find documents where an array field contains all of a set of values?
-router.get('/find', async function(req, res){
+/* router.get('/find', async function(req, res){
   let findUser = await userModel.find({categories:{$all:["mongoose"]}});
+  res.send(findUser);
+}); */
+
+//Question 3. How can I search for documents with a specific date range in Mongoose?
+
+
+router.get('/find', async function(req,res){
+
+  var date1 = new Date('2024-02-07');
+  var date2 = new Date('2024-02-09');
+  //gte = greater than or equals to , lte = less than or equals to :D
+  let findUser = await userModel.find({datecreated:{ $gte:date1, $lte:date2}}); 
   res.send(findUser);
 });
 
